@@ -1,3 +1,4 @@
+import math
 import app
 
 
@@ -10,7 +11,7 @@ class Calculator:
         self.check_types(x, y)
         return x + y
 
-    def substract(self, x, y):
+    def subtract(self, x, y):
         self.check_types(x, y)
         return x - y
 
@@ -32,9 +33,22 @@ class Calculator:
         self.check_types(x, y)
         return x ** y
 
-    def check_types(self, x, y):
-        if not isinstance(x, (int, float)) or not isinstance(y, (int, float)):
-            raise TypeError("Parameters must be numbers")
+    def sqrt(self, x):
+        self.check_types(x)
+        if x < 0:
+            raise TypeError("Cannot calculate square root of a negative number")
+        return math.sqrt(x)
+
+    def log10(self, x):
+        self.check_types(x)
+        if x <= 0:
+            raise TypeError("Logarithm base 10 is undefined for non-positive values")
+        return math.log10(x)
+
+    def check_types(self, *args):
+        for arg in args:
+            if not isinstance(arg, (int, float)):
+                raise TypeError("Parameters must be numbers")
 
 
 if __name__ == "__main__":  # pragma: no cover
