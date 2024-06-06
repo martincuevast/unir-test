@@ -113,7 +113,7 @@ class TestCalculate(unittest.TestCase):
 
     def test_power_method_with_negative_base(self):
         self.assertEqual(-8, self.calc.power(-2, 3))
-        self.assertAlmostEqual(0.125, self.calc.power(-2, -3), delta=0.0000001)
+        self.assertAlmostEqual(-0.125, self.calc.power(-2, -3), delta=0.0000001)
 
     def test_sqrt_method_with_zero(self):
         self.assertEqual(0, self.calc.sqrt(0))
